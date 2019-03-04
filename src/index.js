@@ -49,4 +49,8 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.info(`Server has started on port ${PORT} and is CORS-enabled`));
+const SERVER = process.env.SERVER || '127.0.0.1';
+app.listen(PORT, () => {
+    console.info(`Server has started on port ${PORT} and is CORS-enabled`);
+    console.info(`Drone is connected to the sever over tcp-ip:port ${SERVER}:${PORT}`);
+});
